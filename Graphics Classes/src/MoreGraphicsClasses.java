@@ -20,7 +20,7 @@ public class MoreGraphicsClasses extends GraphicsProgram
 	public void run()
 	{
 		createLines();
-		createArcsAndPolygons();
+		createPolygons();
 		createImages();
 	}
 
@@ -38,7 +38,7 @@ public class MoreGraphicsClasses extends GraphicsProgram
 	}
 	
 	//create complex shapes
-	public void createArcsAndPolygons()
+	public void createPolygons()
 	{
 		//create a polygon
 		GPolygon hexagon = new GPolygon(200, 100);
