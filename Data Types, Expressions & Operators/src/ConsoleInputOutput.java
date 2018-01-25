@@ -1,3 +1,5 @@
+import java.text.DecimalFormat;
+
 import acm.util.RandomGenerator;
 
 public class ConsoleInputOutput 
@@ -62,6 +64,60 @@ public class ConsoleInputOutput
 			int value = random.nextInt(1, numSides);
 			System.out.println("You rolled a " + value + "!");
 		}
+	}
+	
+	public void divide()
+	{
+		//get user inputs
+		int numerator = console.getInt("Enter a numerator");
+		int denominator = console.getInt("Enter a denominator");
+		
+		//check for division by zero
+		if (denominator == 0)
+		{
+			System.out.println("You cannot divide by zero!");
+			return; //exit the method
+		}
+		
+		//print the result of division and the remainder
+		int results = numerator / denominator;
+		int remainder = numerator % denominator;
+		
+		System.out.println("Results: " + results);
+		System.out.println("Remainder: " + remainder);
+	}
+	
+	public void leapYear()
+	{
+		//get user inputs
+		int year = console.getInt("Enter a year");
+		
+		if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0))
+		{
+			System.out.println(year + " is a leap year!");
+		}
+		else
+		{
+			System.out.println(year + " is not a leap year!");
+		}
+	}
+	
+	public void payCalculator()
+	{
+		double price = console.getDouble("Enter a price");
+		double quantity = console.getDouble("Enter a quantity");
+		
+		double subTotal = price * quantity;
+		double tax = subTotal * 0.099;
+		double total = subTotal + tax;
+		
+		System.out.println("Total: " + total);
+		
+		//formatted output
+		DecimalFormat formatter = new DecimalFormat(".##");
+		String output = formatter.format(total);
+		
+		System.out.println(output);
 	}
 }
 
