@@ -1,17 +1,18 @@
-
-
 import java.awt.Color;
 import acm.graphics.GPen;
 import acm.program.GraphicsProgram;
 
 public class GPenPractice extends GraphicsProgram
 {
+	//this pen is declared as a field so all methods have access
+	//to the pen
+	private GPen pen = new GPen();
+	
 	public void run()
 	{
 		setSize(300, 300);
 		
 		//create an object
-		GPen pen = new GPen();
 		add(pen);
 		
 		//use an object!
@@ -50,6 +51,26 @@ public class GPenPractice extends GraphicsProgram
 		pen.drawLine(0, 100); //move down
 		pen.drawLine(-50, 50); //move down-left
 		pen.drawLine(0, -100); //move up
+		pen.endFilledRegion();
+		
+		//create a few pixels
+		createPixelAt(240, 240, Color.BLACK);
+		createPixelAt(220, 220, Color.BLUE);
+		createPixelAt(240, 220, Color.GREEN);
+	}
+	
+	public void createPixelAt(int x, int y, Color color)
+	{
+		//pick up the pen and move it, then set the color
+		pen.setLocation(x, y);
+		pen.setColor(color);
+		
+		//draw the pixel
+		pen.startFilledRegion();
+		pen.drawLine(20, 0);
+		pen.drawLine(0, 20);
+		pen.drawLine(-20, 0);
+		pen.drawLine(0, -20);
 		pen.endFilledRegion();
 	}
 }
