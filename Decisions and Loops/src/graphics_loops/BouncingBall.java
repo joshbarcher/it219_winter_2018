@@ -1,3 +1,4 @@
+package graphics_loops;
 import java.awt.Color;
 
 import acm.graphics.GOval;
@@ -32,7 +33,42 @@ public class BouncingBall extends GraphicsProgram
 		//move the ball
 		while (true)
 		{
+			
+			//move it
 			ball.move(dx, dy);
+			
+			//check for a wall collision on top, bottom
+			if (ball.getY() <= 0 || ball.getY() + ball.getHeight() >= WIN_SIZE)
+			{
+				dy = -dy;
+
+				//if moving to the top now
+				if (dy < 0)
+				{
+					dy -= 1;
+				}
+				else if (dy > 0) //to the bottom
+				{
+					dy += 1;
+				}
+			}
+			
+			//check left
+			if (ball.getX() <= 0 || ball.getX() + ball.getWidth() >= WIN_SIZE)
+			{
+				dx = -dx;
+				
+				//if moving to the left now
+				if (dx < 0)
+				{
+					dx -= 1;
+				}
+				else if (dx > 0) //to the right
+				{
+					dx += 1;
+				}
+			}
+			
 			pause(20);
 		}
 	}
