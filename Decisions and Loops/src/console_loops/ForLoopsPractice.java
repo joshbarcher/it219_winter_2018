@@ -1,7 +1,11 @@
 package console_loops;
 
-public class LoopsPractice 
+import acm.graphics.GPen;
+
+public class ForLoopsPractice 
 {
+	private GPen pen = new GPen(2, 3);
+	
 	public void sequences()
 	{
 		//1, 2, 3, ... , 7, 8, 9, 10
@@ -131,7 +135,75 @@ public class LoopsPractice
 			}
 		}
 	}
+	
+	public void printGrid()
+	{
+		//print a 4x4 grid of stars to the console
+		int rows = 4;
+		int cols = 4;
+		
+		for (int i = 1; i <= rows; i++)
+		{
+			//this inner loop will print a single row
+			for (int j = 1; j <= cols; j++)
+			{
+				System.out.print("* ");
+			}
+			System.out.println(); //new line
+		}
+	}
+	
+	public void printStairs()
+	{
+		//print a 4x4 grid of stars to the console
+		int rows = 4;
+		int cols = 4;
+		
+		for (int i = 1; i <= rows; i++)
+		{
+			//this inner loop will print a single row
+			for (int j = 1; j <= i; j++)
+			{
+				System.out.print("* ");
+			}
+			System.out.println(); //new line
+		}
+	}
+	
+	public void loopMechanics()
+	{
+		//go into an infinite loop, and worry about exiting afterwards
+		int number = 1;
+		
+		//print multiples of 3 less than or equal to 100
+		for (;;) //alternative to while (true) { ... }
+		{
+			//stop if we move beyond 100
+			if (number > 100)
+			{
+				break;
+			}
+			
+			//not a multiple
+			if (number % 3 != 0)
+			{
+				number++; //move to the next number
+				continue; //move back to the top of the loop
+			}
+			
+			System.out.println(number + " is a multiple of 3!");
+			number++; //move to the next number
+		}
+	}
 }
+
+
+
+
+
+
+
+
 
 
 
