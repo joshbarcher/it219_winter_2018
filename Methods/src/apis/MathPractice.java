@@ -65,14 +65,3 @@ public class MathPractice
 		System.out.println(Math.max(first, Math.max(second, third)));
 	}
 }
-
-
-
-
-
-
-
-
-
-
-

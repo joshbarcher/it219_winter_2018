@@ -35,13 +35,3 @@ public class Swirl extends GraphicsProgram
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-

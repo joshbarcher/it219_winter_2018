@@ -50,17 +50,3 @@ public class ProgramStart
 		examples.composeMessage();
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

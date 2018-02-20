@@ -152,18 +152,3 @@ public class MethodFundamentals
 		return first + second;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
