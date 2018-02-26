@@ -1,14 +1,20 @@
+package mouse_events;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 
 import acm.graphics.GLabel;
 import acm.graphics.GObject;
+import acm.graphics.GOval;
 import acm.graphics.GRect;
+import acm.graphics.GRectangle;
 import acm.program.GraphicsProgram;
+import acm.util.RandomGenerator;
 
 public class MouseEvents extends GraphicsProgram
 {
 	private GLabel coordinates;
+	private GRect rectOne;
+	private GRect rectTwo;
 	
 	public void init()
 	{
@@ -21,12 +27,24 @@ public class MouseEvents extends GraphicsProgram
 	
 	public void run()
 	{
-		GRect rectOne = createRectangle(100, 100, 50, 100, Color.BLUE);
-		GRect rectTwo = createRectangle(300, 300, 100, 100, Color.YELLOW);
+		rectOne = createRectangle(100, 100, 50, 100, Color.BLUE);
+		rectTwo = createRectangle(300, 300, 100, 100, Color.YELLOW);
+		
+		GOval circle = createCircle(100, 300, 120, Color.PINK);
 		
 		//create a label to see our mouse position
 		coordinates = new GLabel("x: ?, y: ?", 400, 30);
 		add(coordinates);
+	}
+	
+	public GOval createCircle(int x, int y, int diameter, Color color)
+	{
+		GOval newCircle = new GOval(x, y, diameter, diameter);
+		add(newCircle);
+		newCircle.setFillColor(color);
+		newCircle.setFilled(true);
+		
+		return newCircle;
 	}
 	
 	public GRect createRectangle(int x, int y, int width, int height, 
@@ -43,6 +61,8 @@ public class MouseEvents extends GraphicsProgram
 	//mouse events
 	public void mousePressed(MouseEvent event)
 	{
+		RandomGenerator random = new RandomGenerator();
+		
 		int x = event.getX();
 		int y = event.getY();
 		
@@ -60,6 +80,22 @@ public class MouseEvents extends GraphicsProgram
 				//I now know that I have a GRect object in my variable
 				GRect rectangle = (GRect)clickedOn;
 				rectangle.setFillColor(Color.RED);
+			}
+			else if (clickedOn instanceof GOval)
+			{
+				//move the circle randomly
+				GOval circle = (GOval)clickedOn;
+				circle.setLocation(random.nextInt(0, 380), 
+                                   random.nextInt(0, 380));
+				
+				//make sure there is not collision with another object
+				GRectangle circleBoundingBox = circle.getBounds();
+				
+				if (circleBoundingBox.intersects(rectOne.getBounds()) ||
+					circleBoundingBox.intersects(rectTwo.getBounds()))
+				{
+					System.out.println("Shape collision!");
+				}
 			}
 		}
 	}
