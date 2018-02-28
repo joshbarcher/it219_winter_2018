@@ -49,12 +49,16 @@ public class KeyEvents extends GraphicsProgram
 		{
 			case KeyEvent.VK_UP:
 				image.move(0, -5);
+				break;
 			case KeyEvent.VK_DOWN:
 				image.move(0, 5);
+				break;
 			case KeyEvent.VK_LEFT:
 				image.move(-5, 0);
+				break;
 			case KeyEvent.VK_RIGHT:
 				image.move(5, 0);
+				break;	
 		}
 	}
 	
