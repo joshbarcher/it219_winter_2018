@@ -1,3 +1,4 @@
+package arrays;
 import acm.util.RandomGenerator;
 
 public class ArraysPractice 
