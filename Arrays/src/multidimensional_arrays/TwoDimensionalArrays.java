@@ -1,9 +1,39 @@
-package multidimensional;
+package multidimensional_arrays;
 
 public class TwoDimensionalArrays 
 {
 	public static void main(String[] args)
 	{
+		//store contact details - name (nickname), phone number(s), email(s)
+		String[][] contact = new String[3][];
+		
+		//assign elements
+		contact[0] = new String[2];
+		contact[0][0] = "Fred Flintstone";
+		contact[0][1] = "Freddy";
+		
+		contact[1] = new String[1];
+		contact[1][0] = "360-444-7777";
+		
+		contact[2] = new String[3];
+		contact[2][0] = "e@e.com";
+		contact[2][1] = "me@gmail.com";
+		contact[2][2] = "nobody@yahoo.com";
+		
+		contact = new String[][] {
+			{"Fred Flintstone", "Freddy"},
+			{"360-444-7777"},
+			{"e@e.com", "me@gmail.com", "nobody@yahoo.com"}
+		};
+		
+		for (int i = 0; i < contact.length; i++)
+		{
+			for (int j = 0; j < contact[i].length; j++)
+			{
+				System.out.print(contact[i][j] + " ");
+			}
+			System.out.println();
+		}
 	}
 	
 	public void multiplicationTable()
