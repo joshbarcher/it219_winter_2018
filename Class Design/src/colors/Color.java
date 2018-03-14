@@ -17,13 +17,32 @@ public class Color
 		alpha = 1.0;
 	}
 	
-	public Color(int newRed, int newGreen, int newBlue, double newAlpha) 
+	public Color(int newRed, int newGreen, 
+			int newBlue, double newAlpha) 
 	{
 		red = newRed;
 		green = newGreen;
 		blue = newBlue;
 		alpha = newAlpha;
 	}
+	
+	//methods
+	
+	public void convertToGrayscale()
+	{
+		int average = (red + green + blue) / 3;
+		
+		red = green = blue = average;
+	}
+	
+	public void alterColor(int newRed, int newGreen, int newBlue)
+	{
+		red = newRed;
+		green = newGreen;
+		blue = newBlue;
+	}
+	
+	//getters/setters
 
 	public int getRed() 
 	{
@@ -67,7 +86,8 @@ public class Color
 	
 	public String toString()
 	{
-		return "r: " + red + ", g: " + green + ", b: " + blue + ", a: " + alpha;
+		return "r: " + red + ", g: " + green + 
+				", b: " + blue + ", a: " + alpha;
 	}
 }
 
